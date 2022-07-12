@@ -51,7 +51,6 @@ def compose(request):
     # Get contents of email
     subject = data.get("subject", "")
     body = data.get("body", "")
-
     # Create one email for each recipient, plus sender
     users = set()
     users.add(request.user)
@@ -68,6 +67,7 @@ def compose(request):
         for recipient in recipients:
             email.recipients.add(recipient)
         email.save()
+    
 
     return JsonResponse({"message": "Email sent successfully."}, status=201)
 
