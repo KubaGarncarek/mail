@@ -153,6 +153,7 @@ function view_email(email) {
     reply.id = 'reply';
     reply.className = ("btn btn-sm btn-outline-primary");
     reply.innerHTML = "Reply";
+    reply.addEventListener('click', () => reply_email(email));
     
 
     const hr = document.createElement('hr');
@@ -193,4 +194,12 @@ function change_to_read(email_id) {
     })
   })
   return false;
+}
+
+function reply_email(email) {
+  compose_email()
+  document.querySelector('#compose-recipients').value = email.recipients;
+  document.querySelector('#compose-subject').value = `Re: ${email.subject}`;
+  document.querySelector('#compose-body').value = `"On ${email.timestamp, email.sender} wrote:" ${email.body}`;
+
 }
