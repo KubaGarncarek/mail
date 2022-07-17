@@ -6,10 +6,20 @@ textarea {
 .row {
     height:50px;
     border: 1px solid grey;
-    border-radius: 20px;
     margin: 8px;
 }
 
 .row > div {
-    justify-content: center;
+    
+    display: flex;
+    align-items: center;
+}
+
+#email_box_unreaded {
+    background-color: #CBCBCB;
+}
+
+#archive_button {
+    padding-right: 0;
+    height:100%
 }
